@@ -14,16 +14,330 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      academic_records: {
+        Row: {
+          assignment_rate: number | null
+          backlogs: number | null
+          course: string
+          created_at: string
+          exam_score: number | null
+          gpa: number | null
+          id: string
+          semester: string
+          student_id: string
+        }
+        Insert: {
+          assignment_rate?: number | null
+          backlogs?: number | null
+          course: string
+          created_at?: string
+          exam_score?: number | null
+          gpa?: number | null
+          id?: string
+          semester: string
+          student_id: string
+        }
+        Update: {
+          assignment_rate?: number | null
+          backlogs?: number | null
+          course?: string
+          created_at?: string
+          exam_score?: number | null
+          gpa?: number | null
+          id?: string
+          semester?: string
+          student_id?: string
+        }
+        Relationships: []
+      }
+      activities: {
+        Row: {
+          activity_name: string
+          activity_type: string
+          created_at: string
+          id: string
+          participation_date: string
+          student_id: string
+        }
+        Insert: {
+          activity_name: string
+          activity_type: string
+          created_at?: string
+          id?: string
+          participation_date: string
+          student_id: string
+        }
+        Update: {
+          activity_name?: string
+          activity_type?: string
+          created_at?: string
+          id?: string
+          participation_date?: string
+          student_id?: string
+        }
+        Relationships: []
+      }
+      alerts: {
+        Row: {
+          alert_type: string
+          assigned_to: string | null
+          created_at: string
+          id: string
+          is_read: boolean | null
+          message: string
+          severity: string
+          student_id: string
+        }
+        Insert: {
+          alert_type: string
+          assigned_to?: string | null
+          created_at?: string
+          id?: string
+          is_read?: boolean | null
+          message: string
+          severity: string
+          student_id: string
+        }
+        Update: {
+          alert_type?: string
+          assigned_to?: string | null
+          created_at?: string
+          id?: string
+          is_read?: boolean | null
+          message?: string
+          severity?: string
+          student_id?: string
+        }
+        Relationships: []
+      }
+      attendance: {
+        Row: {
+          course: string
+          created_at: string
+          date: string
+          id: string
+          status: string
+          student_id: string
+        }
+        Insert: {
+          course: string
+          created_at?: string
+          date: string
+          id?: string
+          status: string
+          student_id: string
+        }
+        Update: {
+          course?: string
+          created_at?: string
+          date?: string
+          id?: string
+          status?: string
+          student_id?: string
+        }
+        Relationships: []
+      }
+      chat_logs: {
+        Row: {
+          created_at: string
+          id: string
+          message: string
+          sender: string
+          sentiment: string | null
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          message: string
+          sender: string
+          sentiment?: string | null
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          message?: string
+          sender?: string
+          sentiment?: string | null
+          user_id?: string
+        }
+        Relationships: []
+      }
+      counseling_sessions: {
+        Row: {
+          counselor_id: string | null
+          created_at: string
+          id: string
+          notes: string | null
+          scheduled_at: string
+          status: string
+          student_id: string
+          updated_at: string
+        }
+        Insert: {
+          counselor_id?: string | null
+          created_at?: string
+          id?: string
+          notes?: string | null
+          scheduled_at: string
+          status?: string
+          student_id: string
+          updated_at?: string
+        }
+        Update: {
+          counselor_id?: string | null
+          created_at?: string
+          id?: string
+          notes?: string | null
+          scheduled_at?: string
+          status?: string
+          student_id?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      mood_surveys: {
+        Row: {
+          created_at: string
+          id: string
+          mood_score: number
+          notes: string | null
+          sleep_hours: number | null
+          stress_level: number
+          student_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          mood_score: number
+          notes?: string | null
+          sleep_hours?: number | null
+          stress_level: number
+          student_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          mood_score?: number
+          notes?: string | null
+          sleep_hours?: number | null
+          stress_level?: number
+          student_id?: string
+        }
+        Relationships: []
+      }
+      profiles: {
+        Row: {
+          avatar_url: string | null
+          created_at: string
+          department: string | null
+          email: string
+          full_name: string
+          id: string
+          phone: string | null
+          student_id: string | null
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          avatar_url?: string | null
+          created_at?: string
+          department?: string | null
+          email: string
+          full_name: string
+          id?: string
+          phone?: string | null
+          student_id?: string | null
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          avatar_url?: string | null
+          created_at?: string
+          department?: string | null
+          email?: string
+          full_name?: string
+          id?: string
+          phone?: string | null
+          student_id?: string | null
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      risk_scores: {
+        Row: {
+          burnout_risk: number | null
+          created_at: string
+          dropout_risk: number | null
+          id: string
+          overall_score: number
+          reasons: Json | null
+          risk_level: string
+          stress_risk: number | null
+          student_id: string
+          suggested_actions: Json | null
+        }
+        Insert: {
+          burnout_risk?: number | null
+          created_at?: string
+          dropout_risk?: number | null
+          id?: string
+          overall_score: number
+          reasons?: Json | null
+          risk_level: string
+          stress_risk?: number | null
+          student_id: string
+          suggested_actions?: Json | null
+        }
+        Update: {
+          burnout_risk?: number | null
+          created_at?: string
+          dropout_risk?: number | null
+          id?: string
+          overall_score?: number
+          reasons?: Json | null
+          risk_level?: string
+          stress_risk?: number | null
+          student_id?: string
+          suggested_actions?: Json | null
+        }
+        Relationships: []
+      }
+      user_roles: {
+        Row: {
+          id: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Insert: {
+          id?: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Update: {
+          id?: string
+          role?: Database["public"]["Enums"]["app_role"]
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      has_role: {
+        Args: {
+          _role: Database["public"]["Enums"]["app_role"]
+          _user_id: string
+        }
+        Returns: boolean
+      }
     }
     Enums: {
-      [_ in never]: never
+      app_role: "student" | "faculty" | "counselor" | "admin"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -150,6 +464,8 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      app_role: ["student", "faculty", "counselor", "admin"],
+    },
   },
 } as const
